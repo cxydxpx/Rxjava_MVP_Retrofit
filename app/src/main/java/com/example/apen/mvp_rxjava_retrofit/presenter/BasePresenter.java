@@ -1,7 +1,7 @@
 package com.example.apen.mvp_rxjava_retrofit.presenter;
 
-import com.example.apen.mvp_rxjava_retrofit.utils.Api;
-import com.example.apen.mvp_rxjava_retrofit.utils.ApiManager;
+import com.example.apen.mvp_rxjava_retrofit.http.Api;
+import com.example.apen.mvp_rxjava_retrofit.http.ApiManager;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;

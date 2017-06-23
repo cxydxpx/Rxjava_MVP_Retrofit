@@ -28,6 +28,7 @@ public class RxJavaDemo1 extends BaseActivity<MainPresenter> implements RxJavaDe
         text = (TextView) findViewById(R.id.text);
 
         initRxJava();
+
     }
 
     @Override

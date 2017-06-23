@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.RxJavaDemo1"/>
+        <activity android:name=".view.activity.RxJavaDemo2"/>
     </application>
 
 </manifest>
