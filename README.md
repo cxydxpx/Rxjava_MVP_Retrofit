@@ -11,9 +11,9 @@
 	
 		- protocol                   http
 		- 分隔符 ://                 ://
-		- domain                     api.vpaidian.com
+		- domain                     apen.vpaidian.com
 		- path                       /username/
-		- query                      ?_n=unit.star & _otype=list
+		- query                      ?_n=star & _otype=list
 		- 锚记                       #xxx
 
 ###- METHOD
@@ -34,7 +34,7 @@
 			Content-Length: 19
 			_v: 1.0
 			_r: android
-			_username: 199
+			_username: 1523956
 			_password: 000000
 		
 		
@@ -67,11 +67,11 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 19
 _v: 1.0
 _r: android
-_username: 199
+_username: 1523698
 _password: 000000
 pageid=1&pagesiz=20
 --> END POST (19-byte body)
-<-- 200 OK http://api.vpaidian.com/?_n=unit.star&_otype=list (20ms)
+<-- 200 OK http://apen.vpaidian.com/?_n=star&_otype=list (20ms)
 Date: Thu, 22 Jun 2017 11:29:13 GMT
 Server: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb mod_fcgid/2.3.9
 X-Powered-By: PHP/5.4.33
