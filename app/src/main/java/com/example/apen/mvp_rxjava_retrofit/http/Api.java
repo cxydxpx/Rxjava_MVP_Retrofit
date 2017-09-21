@@ -5,7 +5,6 @@ import com.example.apen.mvp_rxjava_retrofit.model.ClientStarBean;
 import com.example.apen.mvp_rxjava_retrofit.model.MainModel;
 
 import io.reactivex.Observable;
-import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -31,12 +30,10 @@ public interface Api {
     /**
      * http://api.vpaidian.com/?_v=1.0&_r=weixin&_n=unit.star&_otype=list&_username=188&_password=000000&pageid=1&pagesiz=20
      * ?_v=1.0&_r=weixin&_username=188&_password=000000&
-     *
-     * @POST("?_v=1.0&_r=weixin&_username=188&_password=000000&_n=unit.star&_otype=list")
      */
     @FormUrlEncoded
     @POST("?_n=unit.star&_otype=list&_v=1.0")
-    Call<BaseBean<ClientStarBean>> getClientStarLists(
+    Observable<BaseBean<ClientStarBean>> getClientStarLists(
             @Field("pageid") String id,
             @Field("pagesiz") String siz);
 
