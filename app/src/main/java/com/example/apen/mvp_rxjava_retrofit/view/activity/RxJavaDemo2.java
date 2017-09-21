@@ -7,7 +7,6 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.apen.mvp_rxjava_retrofit.R;
-import com.example.apen.mvp_rxjava_retrofit.http.HttpManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,8 +121,6 @@ public class RxJavaDemo2 extends AppCompatActivity {
     }
 
     private void initData() {
-
-        HttpManager.instance().getClientStarLists("1", "20");
 
 
     }

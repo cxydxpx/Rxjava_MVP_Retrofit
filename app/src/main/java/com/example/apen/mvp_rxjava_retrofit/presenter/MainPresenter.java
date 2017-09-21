@@ -18,23 +18,6 @@ public class MainPresenter extends BasePresenter<RxJavaDemoView>{
 
     public void loadDataByRetrofitRxjava(String s) {
         mViews.showLoading();
-        subscribe(api.loadDataByRetrofitRxjava(s),new ApiCallBack<MainModel>(){
-            @Override
-            public void onSuccess(MainModel model) {
-                mViews.getDataSuccess(model);
-            }
-
-            @Override
-            public void onFailure(String msg) {
-                mViews.getDataFaild(msg);
-            }
-
-            @Override
-            public void onFinish() {
-                mViews.hideLoading();
-            }
-        });
-// bieluandong
     }
 
 }

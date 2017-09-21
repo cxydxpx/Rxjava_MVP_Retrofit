@@ -75,35 +75,4 @@ public class HttpManager {
         return SingleInstance.INSTANCE;
     }
 
-    public static final String TAG = "TAG";
-
-    public void getClientStarLists(String id, String siz) {
-
-        mApi.getClientStarLists(id, siz)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BaseBean<ClientStarBean>>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-                Log.i(TAG, "onSubscribe: ");
-            }
-
-            @Override
-            public void onNext(@NonNull BaseBean<ClientStarBean> clientStarBeanBaseBean) {
-                Log.i(TAG, "onNext: " + clientStarBeanBaseBean.getMess().getData().get(0).getName());
-            }
-
-            @Override
-            public void onError(@NonNull Throwable e) {
-                Log.i(TAG, "onError: "+e.getMessage());
-            }
-
-            @Override
-            public void onComplete() {
-                Log.i(TAG, "onComplete: ");
-            }
-        });
-
-    }
-
 }
