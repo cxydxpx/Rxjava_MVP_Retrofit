@@ -12,8 +12,10 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 作者 Y_MS
@@ -51,43 +53,40 @@ public class RxJavaDemo1 extends AppCompatActivity {
                                   Log.i(TAG, "before Rxjava3");
                                   e.onNext("before Rxjava4");
                                   Log.i(TAG, "before Rxjava4");
+                                  Log.i(TAG, "subscribe: " + Thread.currentThread().getName());
                                   e.onComplete();
                               }
                           }
-        ).subscribe(new Observer<String>() {
+        )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
 
-                        private Disposable mDisposable;
+                               @Override
+                               public void onSubscribe(@NonNull Disposable d) {
+                                   Log.i(TAG, "onSubscribe");
+                                   Log.i(TAG, "subscribe: " + Thread.currentThread().getName());
+                               }
 
-                        @Override
-                        public void onSubscribe(@NonNull Disposable d) {
-                            Log.i(TAG, "onSubscribe");
-                            mDisposable = d;
-                        }
-
-                        int i;
-
-                        @Override
-                        public void onNext(@NonNull String s) {
-                            i++;
-                            if (i == 2) {
-                                mDisposable.dispose();
-                                Log.d(TAG, "isDisposed : " + mDisposable.isDisposed());
-                                Log.i(TAG, "onNext : " + s);
-                            }
-                            Log.i(TAG, "onNext : " + s);
-                        }
+                               @Override
+                               public void onNext(@NonNull String s) {
+                                   Log.i(TAG, "onNext : " + s);
+                                   Log.i(TAG, "subscribe: " + Thread.currentThread().getName());
+                               }
 
 
-                        @Override
-                        public void onError(@NonNull Throwable e) {
-                            Log.i(TAG, "onError");
-                        }
+                               @Override
+                               public void onError(@NonNull Throwable e) {
+                                   Log.i(TAG, "onError");
+                                   Log.i(TAG, "subscribe: " + Thread.currentThread().getName());
+                               }
 
-                        @Override
-                        public void onComplete() {
-                            Log.i(TAG, "onComplete");
-                        }
-                    }
-        );
+                               @Override
+                               public void onComplete() {
+                                   Log.i(TAG, "onComplete");
+                                   Log.i(TAG, "subscribe: " + Thread.currentThread().getName());
+                               }
+                           }
+                );
     }
 }
