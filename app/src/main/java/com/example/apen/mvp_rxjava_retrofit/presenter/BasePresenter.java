@@ -1,7 +1,7 @@
 package com.example.apen.mvp_rxjava_retrofit.presenter;
 
 import com.example.apen.mvp_rxjava_retrofit.http.Api;
-import com.example.apen.mvp_rxjava_retrofit.http.ApiManager;
+import com.example.apen.mvp_rxjava_retrofit.http.HttpManager;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -17,10 +17,8 @@ import io.reactivex.schedulers.Schedulers;
 public class BasePresenter<V> {
 
     public V mViews;
-    public Api api;
     public void attachView(V view){
         this.mViews = view;
-        api = ApiManager.retrofit().create(Api.class);
     }
 
     public void detachView(){

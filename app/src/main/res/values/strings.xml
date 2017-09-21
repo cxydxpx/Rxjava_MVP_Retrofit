@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVP_RxJava_Retrofit</string>
+    <string name="app_name">扛把子</string>
 
     <string name="city">城市:</string>
     <string name="wd">\n风向:</string>
